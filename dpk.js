@@ -31,9 +31,9 @@ const getCandidateFromEvent = (event) => {
  * @returns 
  */
 exports.deterministicPartitionKey = (event) => {
-  const candidate = getCandidateFromEvent(event);
-  if (candidate.length < MAX_PARTITION_KEY_LENGTH) {
-    return candidate;
+  const partitionKeyCandidate = getCandidateFromEvent(event);
+  if (partitionKeyCandidate.length < MAX_PARTITION_KEY_LENGTH) {
+    return partitionKeyCandidate;
   }
-  return createHash(candidate);
+  return createHash(partitionKeyCandidate);
 };

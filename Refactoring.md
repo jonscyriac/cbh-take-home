@@ -10,4 +10,7 @@ You will be graded on the exhaustiveness and quality of your unit tests, the dep
 
 ## Your Explanation Here
 
-It is a bit hard to understand what the function intends to do. Firstly, Ive taken the constants out of the function. This is standard practice. Next, I have taken out the createHash function so that it can be reused. This allows us to change the hashing logic at one place instead of doing it over two places in our code. Thirdly, I've tried to take out the candidate extraction part from event. This makes it a bit legible to understand the process flow. To finish off, adding some comments to the functions.
+Firstly, Ive taken the constants out of the function. This is standard practice.
+Next, I have taken out the createHash function so that it can be reused. This allows us to change the hashing logic at one place instead of doing it over two places in our code. 
+Thirdly, I've tried to take out the candidate extraction part from event. Reassignment of variables could be avoided for better readability and debugging scenarios. Also, this makes it a bit legible to understand the process flow.
+To finish off, adding some comments to the functions.
