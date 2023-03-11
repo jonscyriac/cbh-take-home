@@ -17,17 +17,17 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 
 ## Your Breakdown Here
 
-1. setAgentAlienId
+1. Create feature for optionally setting aliend of an Agent.
     ##### Implementation:
     1. modify schema of Agents table
         - add alienId: NULLABLE, VARCHAR, UNIQUE (sparse)
-    2. Create an api endpoint to set the alienId of an agent in agent table.
+    2. Create an api endpoint to set the alienId of an agent in agent table with signature `setAgentAlienId(agentId, alienId)`
 
     ##### Acceptance CRIETRIA:
-    1. api should validate the alienId given to be
-        - unique to an agent
+    1. api should validate the alienId given
+        - to be unique to an agent
         - doesnt include special characters or spaces
-    2. unit tests on BE api
+    2. unit tests on BE api. cases to include but not limited to:
         - invalid alienId with space/special chars
         - duplicate alienId
     3. the web page must show validation errors from BE API on the form.
@@ -41,14 +41,14 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
         - 2 hours for api integration
         - 2 hours for test cases (if any)
 
-2. modify getShiftsByFacility(facilityId)
+2. Modify getShiftsByFacility(facilityId)
     ##### Implementation:
     1. add join on Agents table to attach alienId to shift's agent metadata. The join will be on Shifts.agentId = Agents.id. 
     2. Show alienId of agent in Web page if present. if not, display NA
 
     ##### Acceptance CRIETRIA:
     1. getShiftsByFacility should return Agent.alienId if alienId is present for an agent.
-    2. unit tests on BE api
+    2. unit tests on BE api. cases to include but not limited to:
         - get shifts for agents with alienId
         - get shifts for agents without alienId
     
@@ -60,7 +60,7 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
         - 1 hour for result page modification
         - 1 hour for test cases (if any)
 
-3. modify generateReport(shiftIds?, alienId?)
+3. Modify generateReport(shiftIds?, alienId?)
     ##### Implementation:
     1. generateReport can take an optional param "alienId" OR just alienId.
         - atleast one argument should be mentioned.
@@ -74,7 +74,7 @@ You will be graded on the level of detail in each ticket, the clarity of the exe
 
     ##### Acceptance CRIETRIA:
     1. alienId filter must be applied on generateReport api.
-    2. unit tests on BE api
+    2. unit tests on BE api. cases to include but not limited to:
         - call with just aliendIds
         - call with just shiftIds
         - call with both shiftIds and alienIds
